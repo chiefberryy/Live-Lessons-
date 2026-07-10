@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Henry Ofordum Chidera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      Henry Ofordum Chidera
+      <small>chiefberryy · Abuja, NG</small>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">home</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="planner.html">planner</a></li>
+      <li><a href="contact.html" class="active">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="section" style="padding-top:56px;">
+    <div class="container">
+      <div class="section-head">
+        <p class="prompt">ping contact --connect<span class="cursor"></span></p>
+        <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);">Let's work together</h1>
+        <p style="max-width:60ch;">Have a project, campaign, or collaboration in mind? Send a message and I'll get back to you.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="card">
+            <h3>email</h3>
+            <p><a href="mailto:h.ofordum5202@miva.edu.ng">h.ofordum5202@miva.edu.ng</a></p>
+          </div>
+          <div class="card">
+            <h3>phone</h3>
+            <p><a href="tel:+2347061080786">+234 706 108 0786</a></p>
+          </div>
+          <div class="card">
+            <h3>location</h3>
+            <p>Abuja, Federal Capital Territory, Nigeria</p>
+          </div>
+          <div class="card">
+            <h3>github</h3>
+            <p><a href="https://github.com/chiefberryy" target="_blank" rel="noopener">github.com/chiefberryy</a></p>
+          </div>
+        </div>
+
+        <div class="planner-panel">
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name">
+              <p class="field-error" id="err-name"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="text" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+              <p class="field-error" id="err-email"></p>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input type="text" id="phone" name="phone" placeholder="Digits only, e.g. 2347061080786" autocomplete="tel">
+              <p class="field-error" id="err-phone"></p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about your project..."></textarea>
+              <p class="field-error" id="err-message"></p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send message</button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>© <span id="year"></span> Henry Ofordum Chidera. Built with HTML, CSS &amp; vanilla JS.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:h.ofordum5202@miva.edu.ng">h.ofordum5202@miva.edu.ng</a></li>
+      <li><a href="https://github.com/chiefberryy" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
