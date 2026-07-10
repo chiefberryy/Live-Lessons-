@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Henry Ofordum Chidera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      Henry Ofordum Chidera
+      <small>chiefberryy · Abuja, NG</small>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">home</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="projects.html" class="active">projects</a></li>
+      <li><a href="planner.html">planner</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="section" style="padding-top:56px;">
+    <div class="container">
+      <div class="section-head">
+        <p class="prompt">ls ./projects<span class="cursor"></span></p>
+        <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);">Selected work</h1>
+        <p style="max-width:60ch;">A mix of media agency campaigns and cybersecurity coursework — creativity and security, side by side.</p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="project-shot">[ screenshot placeholder — campaign-reel.png ]</div>
+          <div class="project-body">
+            <span class="tag">media agency</span>
+            <h3>Berry Studios — Brand Content Engine</h3>
+            <p>Led creative direction and content production for a boutique media agency's client roster, building a repeatable system for short-form video, captions, and posting cadence that grew engagement across three brand accounts.</p>
+            <div class="project-actions">
+              <a href="https://github.com/chiefberryy" target="_blank" rel="noopener" class="btn btn-ghost">View repo ↗</a>
+              <a href="#" class="btn btn-primary">Case study →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-shot">[ screenshot placeholder — network-audit.png ]</div>
+          <div class="project-body">
+            <span class="tag">cybersecurity</span>
+            <h3>Home Network Vulnerability Audit</h3>
+            <p>A coursework project mapping and hardening a small local network — documenting open ports, default-credential risks, and a remediation checklist aligned with basic security best practices.</p>
+            <div class="project-actions">
+              <a href="https://github.com/chiefberryy" target="_blank" rel="noopener" class="btn btn-ghost">View repo ↗</a>
+              <a href="#" class="btn btn-primary">Read writeup →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-shot">[ screenshot placeholder — social-launch.png ]</div>
+          <div class="project-body">
+            <span class="tag">digital marketing</span>
+            <h3>Social Launch Playbook</h3>
+            <p>Designed and executed a multi-platform launch strategy for a growing lifestyle brand, combining paid social, influencer outreach, and a content calendar that shaped the brand's early voice.</p>
+            <div class="project-actions">
+              <a href="https://github.com/chiefberryy" target="_blank" rel="noopener" class="btn btn-ghost">View repo ↗</a>
+              <a href="#" class="btn btn-primary">Case study →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>© <span id="year"></span> Henry Ofordum Chidera. Built with HTML, CSS &amp; vanilla JS.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:h.ofordum5202@miva.edu.ng">h.ofordum5202@miva.edu.ng</a></li>
+      <li><a href="https://github.com/chiefberryy" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
