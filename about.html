@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Henry Ofordum Chidera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      Henry Ofordum Chidera
+      <small>chiefberryy · Abuja, NG</small>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">home</a></li>
+      <li><a href="about.html" class="active">about</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="planner.html">planner</a></li>
+      <li><a href="contact.html">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="section" style="padding-top:56px;">
+    <div class="container">
+      <p class="prompt">cat about.md<span class="cursor"></span></p>
+      <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:20ch;">Creative on the surface, cybersecurity underneath.</h1>
+      <p style="max-width:62ch; font-size:1.02rem;">My goal is to become a highly skilled cybersecurity professional while building successful businesses in media, technology, and digital marketing. I aspire to create innovative solutions, help businesses grow through digital strategies, and make a positive impact in the tech industry.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px,1fr));">
+        <div class="card">
+          <span class="card-icon">education</span>
+          <h3>Miva Open University</h3>
+          <p>Currently studying for a degree in Cyber Security — building a foundation in network defense, digital forensics, and secure systems thinking.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">aspiration</span>
+          <h3>Where I'm headed</h3>
+          <p>Bridging security expertise with creative and marketing ventures — building solutions and brands that are both safe and unforgettable.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">based in</span>
+          <h3>Abuja, Nigeria</h3>
+          <p>Working from Nigeria's Federal Capital Territory, connected to clients and collaborators across media and tech.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="prompt">ls ./skills</p>
+        <h2>Technical &amp; creative skills</h2>
+        <p>A working toolkit spanning content strategy, brand storytelling, and the fundamentals of cybersecurity.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-icon">media</span>
+          <h3>Content Creation</h3>
+          <p>Scripting, shooting and editing platform-native content that holds attention.</p>
+          <div class="meter"><span style="width:90%"></span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">strategy</span>
+          <h3>Creative Direction</h3>
+          <p>Shaping visual identity and campaign concepts from brief to final cut.</p>
+          <div class="meter"><span style="width:88%"></span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">growth</span>
+          <h3>Digital Marketing</h3>
+          <p>Running social campaigns and funnels that turn attention into action.</p>
+          <div class="meter"><span style="width:85%"></span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">community</span>
+          <h3>Social Media Management</h3>
+          <p>Planning content calendars, engagement strategy, and community growth.</p>
+          <div class="meter"><span style="width:87%"></span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">security</span>
+          <h3>Cyber Security Fundamentals</h3>
+          <p>Studying network security, threat awareness, and secure system design.</p>
+          <div class="meter"><span style="width:68%"></span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">tools</span>
+          <h3>Web Fundamentals</h3>
+          <p>HTML, CSS and JavaScript — building and shipping clean interfaces.</p>
+          <div class="meter"><span style="width:75%"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="prompt">ls ./interests --hobbies</p>
+        <h2>Hobbies &amp; interests</h2>
+        <p>What keeps me sharp outside of screens and campaigns.</p>
+      </div>
+      <ul class="chip-list">
+        <li>📚 Reading</li>
+        <li>✈️ Traveling</li>
+        <li>⚽ Football</li>
+        <li>🏓 Table Tennis</li>
+        <li>🏀 Basketball</li>
+        <li>🎱 Snooker</li>
+        <li>🏊 Swimming</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>© <span id="year"></span> Henry Ofordum Chidera. Built with HTML, CSS &amp; vanilla JS.</p>
+    <ul class="footer-links">
+      <li><a href="mailto:h.ofordum5202@miva.edu.ng">h.ofordum5202@miva.edu.ng</a></li>
+      <li><a href="https://github.com/chiefberryy" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
