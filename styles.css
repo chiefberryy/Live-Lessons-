@@ -531,4 +531,4 @@ input.invalid, textarea.invalid{ border-color: var(--red); }
 @media (max-width: 720px){
   .nav-toggle{ display: flex; }
   .nav-links{
-    position: absolute;
+    position: absolute; 
