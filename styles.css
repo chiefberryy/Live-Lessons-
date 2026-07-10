@@ -1,0 +1,534 @@
+/* =========================================================
+   Henry Ofordum Chidera — Portfolio
+   Design concept: "Clearance File" — a press credential crossed
+   with a security dossier. Stone-paper stock, ink masthead,
+   stamped data, ticket-perforation dividers.
+   ========================================================= */
+:root{
+  /* --- palette --- */
+  --ink:        #14181F;   /* near-black navy — masthead / hero */
+  --ink-2:      #1D2330;   /* raised panel on ink */
+  --ink-rule:   #2C3244;   /* hairline on ink */
+  --paper:      #E7E2D3;   /* stone paper — main background */
+  --paper-2:    #DED8C4;   /* deeper paper — cards, table stripes */
+  --paper-3:    #F4F1E7;   /* lightest paper — card faces */
+  --rule:       #C6BEA3;   /* hairline on paper */
+  --text-ink:   #1D2129;   /* body text on paper */
+  --text-onink: #E9E6DB;   /* body text on ink */
+  --muted:      #6B6A5A;   /* muted text on paper */
+  --muted-ink:  #9AA0AE;   /* muted text on ink */
+  --red:        #AE3C25;   /* stamp / signal accent */
+  --red-deep:   #7E2A1A;
+  --yellow:     #DFAE3C;   /* clearance-tape accent */
+  --green:      #4C6B4F;   /* "granted" stamp */
+
+  --radius: 4px;
+  --radius-lg: 6px;
+  --font-display: 'Big Shoulders', 'Arial Narrow', sans-serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --max-w: 1180px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(180deg, rgba(20,24,31,.025) 0 1px, transparent 1px 3px);
+  color: var(--text-ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width: 100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+  margin: 0 0 .35em;
+  line-height: .98;
+}
+p{ margin: 0 0 1em; color: var(--muted); }
+ul{ margin:0; padding:0; }
+.container{ max-width: var(--max-w); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+:focus-visible{ outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+
+/* =========================================================
+   Utility bits — dossier / stamp motif
+   ========================================================= */
+.prompt{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  text-transform: uppercase;
+  margin-bottom: .9em;
+}
+.prompt::before{
+  content: "";
+  width: 7px; height: 7px;
+  background: var(--red);
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.tag{
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .35em .7em;
+  border: 1px solid var(--text-ink);
+  border-radius: 2px;
+  color: var(--text-ink);
+  background: var(--paper-3);
+}
+
+/* perforated ticket-tear divider between sections */
+.section + .section{ position: relative; }
+.section + .section::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background-image: repeating-linear-gradient(90deg, var(--rule) 0 8px, transparent 8px 16px);
+}
+
+/* =========================================================
+   Navigation — masthead
+   ========================================================= */
+.site-header{
+  position: sticky; top: 0; z-index: 50;
+  background: var(--ink);
+  border-bottom: 3px solid var(--red);
+}
+.navbar{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px;
+  max-width: var(--max-w); margin: 0 auto;
+}
+.brand{
+  display: flex; align-items: center; gap: .65em;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.3rem;
+  letter-spacing: .01em; text-transform: uppercase;
+  color: var(--text-onink);
+}
+.brand .dot{
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(223,174,60,.18);
+}
+.brand small{
+  display:block; font-family: var(--font-mono); font-weight: 400; font-size: .62rem;
+  color: var(--muted-ink); letter-spacing: .1em; text-transform: uppercase; margin-top: 2px;
+}
+
+.nav-links{
+  display: flex; align-items: center; gap: 2px;
+  list-style: none;
+}
+.nav-links a{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+  padding: 8px 14px;
+  border-radius: 2px;
+  position: relative;
+  transition: color .2s var(--ease), background .2s var(--ease);
+}
+.nav-links a:hover{ color: var(--text-onink); background: var(--ink-2); }
+.nav-links a.active{ color: var(--yellow); }
+.nav-links a.active::after{
+  content:""; position: absolute; left: 14px; right: 14px; bottom: 3px; height: 2px;
+  background: var(--yellow); border-radius: 2px;
+}
+
+.nav-toggle{
+  display: none;
+  flex-direction: column; gap: 4px;
+  background: none; border: none; cursor: pointer; padding: 8px;
+}
+.nav-toggle span{ width: 22px; height: 2px; background: var(--text-onink); border-radius: 2px; }
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.btn{
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: .5em;
+  padding: 12px 22px;
+  border-radius: 2px;
+  border: 1.5px solid var(--text-ink);
+  background: transparent;
+  color: var(--text-ink);
+  cursor: pointer;
+  transition: transform .15s var(--ease), background .2s var(--ease), color .2s var(--ease);
+}
+.btn:hover{ transform: translateY(-2px); }
+.btn:active{ transform: translateY(0); }
+.btn-primary{
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--paper-3);
+  font-weight: 600;
+}
+.btn-primary:hover{ background: var(--red-deep); border-color: var(--red-deep); }
+.btn-ghost{ background: transparent; }
+.btn-ghost:hover{ background: var(--text-ink); color: var(--paper-3); }
+.btn-danger{ border-color: var(--red); color: var(--red); background: transparent; }
+.btn-danger:hover{ background: var(--red); color: var(--paper-3); }
+.btn-block{ width: 100%; justify-content: center; }
+.btn:disabled{ opacity:.4; cursor:not-allowed; transform:none; }
+
+/* =========================================================
+   Hero (index.html)
+   ========================================================= */
+.hero{
+  background: var(--ink);
+  color: var(--text-onink);
+  padding: 72px 0 84px;
+  border-bottom: 1px solid var(--ink-rule);
+}
+.hero .container{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 56px;
+  align-items: start;
+}
+.hero-copy .prompt{ color: var(--yellow); }
+.hero-copy h1{
+  font-size: clamp(2.6rem, 5vw, 4.1rem);
+  color: var(--text-onink);
+}
+.hero-copy h1 .highlight{ color: var(--red); }
+.hero-role{
+  font-family: var(--font-mono);
+  color: var(--muted-ink);
+  font-size: .82rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: 1.3em;
+  padding-bottom: 1.1em;
+  border-bottom: 1px dashed var(--ink-rule);
+}
+.hero-bio{ max-width: 48ch; color: #B9BBC4; }
+.hero-actions{ display: flex; gap: 12px; margin-top: 1.7em; flex-wrap: wrap; }
+.hero .btn{ border-color: var(--muted-ink); color: var(--text-onink); }
+.hero .btn-ghost:hover{ background: var(--ink-2); color: var(--text-onink); }
+.hero .btn-primary{ border-color: var(--red); }
+
+/* --- profile photo: die-cut badge frame, no visible fallback markup --- */
+.profile-frame{
+  position: relative;
+  width: 108px; height: 108px;
+  border-radius: 50%;
+  border: 2px solid var(--yellow);
+  padding: 4px;
+  margin-bottom: 1.5em;
+}
+.profile-frame img{
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  background: var(--ink-2);
+}
+/* if the photo 404s, JS removes the <img> and adds this class —
+   the initials are drawn purely in CSS, nothing can leak as text */
+.profile-frame.no-photo::after{
+  content: attr(data-initials);
+  position: absolute; inset: 4px;
+  border-radius: 50%;
+  background: var(--ink-2);
+  color: var(--yellow);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* --- clearance card (replaces the old fake terminal) --- */
+.credential{
+  background: var(--paper-3);
+  color: var(--text-ink);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,.55);
+  transform: rotate(1.2deg);
+}
+.credential-bar{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--text-ink);
+  color: var(--paper-3);
+}
+.credential-bar strong{
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+}
+.credential-bar .stripe{
+  display:flex; gap: 3px;
+}
+.credential-bar .stripe span{ width: 3px; height: 12px; background: var(--yellow); }
+.credential-bar .stripe span:nth-child(2n){ background: var(--muted-ink); }
+.credential-body{ padding: 22px 20px; }
+.credential-row{
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: var(--font-mono); font-size: .78rem;
+}
+.credential-row:last-of-type{ border-bottom: none; }
+.credential-row .k{ color: var(--muted); letter-spacing: .07em; text-transform: uppercase; }
+.credential-row .v{ color: var(--text-ink); font-weight: 500; text-align: right; }
+.credential-stamp{
+  margin-top: 16px;
+  display: inline-flex; align-items: center; gap: .5em;
+  border: 2px solid var(--green);
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 2px;
+  transform: rotate(-2deg);
+}
+.credential-stamp::before{ content: "●"; font-size: .6rem; }
+
+/* =========================================================
+   Section shell
+   ========================================================= */
+.section{ padding: 68px 0; }
+.section-head{ max-width: 62ch; margin-bottom: 2.6em; }
+.section-head h2{ font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+.section-alt{ background: var(--paper-2); }
+
+/* =========================================================
+   Academic info — dossier form
+   ========================================================= */
+.data-table-wrap{
+  border: 1.5px solid var(--text-ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper-3);
+  position: relative;
+}
+table.data-table{ width: 100%; border-collapse: collapse; }
+.data-table caption{
+  text-align: left; padding: 14px 20px;
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--paper-3); background: var(--text-ink);
+}
+.data-table th, .data-table td{ text-align: left; padding: 13px 20px; font-size: .92rem; }
+.data-table thead th{
+  font-family: var(--font-mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--muted); background: var(--paper-2); border-bottom: 1px solid var(--rule);
+}
+.data-table tbody tr:not(:last-child){ border-bottom: 1px dashed var(--rule); }
+.data-table tbody tr:hover{ background: rgba(174,60,37,.05); }
+.data-table tbody th{ font-family: var(--font-mono); font-size: .72rem; color: var(--muted); font-weight: 500; }
+
+/* =========================================================
+   Media block — "reel" plate
+   ========================================================= */
+.media-block{
+  border: 1.5px solid var(--text-ink);
+  border-radius: var(--radius);
+  background: var(--paper-3);
+  padding: 20px;
+  position: relative;
+}
+.media-block video, .media-block audio{ width: 100%; border-radius: 2px; }
+.media-caption{ font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 12px; }
+
+/* =========================================================
+   Skill / info cards grid
+   ========================================================= */
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.card{
+  background: var(--paper-3);
+  border: 1.5px solid var(--text-ink);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.card:hover{ transform: translateY(-4px); box-shadow: 6px 6px 0 var(--text-ink); }
+.card .card-icon{
+  font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid var(--red); border-radius: 2px; padding: .3em .7em; display: inline-block; margin-bottom: 1em;
+}
+.card h3{ font-size: 1.15rem; margin-bottom: .3em; }
+.card p{ margin: 0; font-size: .9rem; }
+
+.meter{ height: 5px; border-radius: 2px; background: var(--paper-2); overflow: hidden; margin-top: 14px; }
+.meter span{ display:block; height: 100%; background: var(--red); }
+
+/* hobbies list */
+.chip-list{ display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+.chip-list li{
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .04em; text-transform: uppercase;
+  padding: 9px 15px; border-radius: 2px;
+  background: var(--paper-3); border: 1px solid var(--text-ink);
+  color: var(--text-ink);
+  transition: color .2s var(--ease), background .2s var(--ease);
+}
+.chip-list li:hover{ color: var(--paper-3); background: var(--text-ink); }
+
+/* =========================================================
+   Projects — index-card style
+   ========================================================= */
+.project-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.project-card{
+  background: var(--paper-3);
+  border: 1.5px solid var(--text-ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.project-card:hover{ transform: translateY(-5px); box-shadow: 7px 7px 0 var(--red); }
+.project-shot{
+  aspect-ratio: 16/10;
+  background: var(--paper-2);
+  background-image: repeating-linear-gradient(135deg, rgba(29,33,41,.05) 0 2px, transparent 2px 14px);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1.5px solid var(--text-ink);
+  font-family: var(--font-mono); font-size: .68rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase;
+}
+.project-body{ padding: 22px; display:flex; flex-direction: column; gap: 10px; flex: 1; }
+.project-body .tag{ align-self: flex-start; }
+.project-body h3{ font-size: 1.3rem; }
+.project-actions{ margin-top: auto; display: flex; gap: 10px; padding-top: 8px; flex-wrap: wrap; }
+
+/* =========================================================
+   Planner
+   ========================================================= */
+.planner-panel{
+  background: var(--paper-3);
+  border: 1.5px solid var(--text-ink);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.task-input-row{ display: flex; gap: 10px; margin-bottom: 22px; }
+.task-input-row input{ flex: 1; }
+.task-stats{
+  display: flex; gap: 20px; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 16px; flex-wrap: wrap;
+}
+.task-stats strong{ color: var(--red); }
+.task-list{ list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.task-item{
+  display: flex; align-items: center; gap: 14px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 13px 16px;
+  cursor: pointer;
+  transition: border-color .2s var(--ease), opacity .2s var(--ease);
+}
+.task-item:hover{ border-color: var(--text-ink); }
+.task-check{
+  width: 18px; height: 18px; border-radius: 2px; border: 1.5px solid var(--muted);
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; color: transparent;
+}
+.task-text{ flex: 1; font-size: .93rem; word-break: break-word; }
+.task-item.done{ opacity: .55; }
+.task-item.done .task-text{ text-decoration: line-through; color: var(--muted); }
+.task-item.done .task-check{ background: var(--green); border-color: var(--green); color: var(--paper-3); }
+.task-remove{
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted);
+  background: none; border: 1px solid var(--rule); border-radius: 2px; padding: 6px 10px; cursor: pointer;
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.task-remove:hover{ color: var(--red); border-color: var(--red); }
+.empty-state{ font-family: var(--font-mono); font-size: .8rem; color: var(--muted); text-align: center; padding: 30px 10px; }
+
+/* =========================================================
+   Forms (contact + planner input)
+   ========================================================= */
+label{ display: block; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+input, textarea{
+  width: 100%;
+  background: var(--paper-3);
+  border: 1.5px solid var(--rule);
+  border-radius: 2px;
+  padding: 12px 14px;
+  color: var(--text-ink);
+  font-family: var(--font-body);
+  font-size: .93rem;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+input::placeholder, textarea::placeholder{ color: #A6A08C; }
+input:focus, textarea:focus{ border-color: var(--red); box-shadow: 0 0 0 3px rgba(174,60,37,.12); outline: none; }
+.field{ margin-bottom: 18px; }
+.field-error{ font-family: var(--font-mono); font-size: .7rem; color: var(--red); margin-top: 6px; min-height: 1em; }
+input.invalid, textarea.invalid{ border-color: var(--red); }
+.form-status{
+  font-family: var(--font-mono); font-size: .8rem; padding: 12px 16px; border-radius: 2px;
+  margin-top: 16px; display: none; border: 1.5px solid transparent;
+}
+.form-status.show{ display: block; }
+.form-status.success{ color: var(--green); background: rgba(76,107,79,.08); border-color: var(--green); }
+.form-status.error{ color: var(--red); background: rgba(174,60,37,.08); border-color: var(--red); }
+
+.contact-grid{
+  display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: start;
+}
+.contact-info .card{ margin-bottom: 16px; }
+.contact-info .card h3{ font-size: .8rem; color: var(--muted); font-family: var(--font-mono); letter-spacing: .08em; }
+.contact-info .card p{ font-size: 1rem; color: var(--text-ink); margin: 0; font-family: var(--font-body); }
+
+/* =========================================================
+   Footer — masthead reprise
+   ========================================================= */
+.site-footer{
+  background: var(--ink);
+  color: var(--muted-ink);
+  border-top: 3px solid var(--red);
+  padding: 30px 0;
+  margin-top: 40px;
+}
+.footer-row{ display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-row p{ margin: 0; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .03em; color: var(--muted-ink); }
+.footer-links{ display: flex; gap: 16px; list-style: none; }
+.footer-links a{ font-family: var(--font-mono); font-size: .72rem; letter-spacing: .04em; color: var(--muted-ink); }
+.footer-links a:hover{ color: var(--yellow); }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 880px){
+  .hero .container{ grid-template-columns: 1fr; }
+  .credential{ transform: none; max-width: 420px; }
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px){
+  .nav-toggle{ display: flex; }
+  .nav-links{
+    position: absolute;
